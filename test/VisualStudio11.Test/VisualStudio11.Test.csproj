@@ -46,10 +46,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\VisualStudio\VisualStudio.csproj">
-      <Project>{6146ca62-cc16-422c-a105-3e81f7452aa6}</Project>
-      <Name>VisualStudio</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Test.Utility\Test.Utility.csproj">
       <Project>{F016882A-C798-4446-BB75-D3C393A38B32}</Project>
       <Name>Test.Utility</Name>

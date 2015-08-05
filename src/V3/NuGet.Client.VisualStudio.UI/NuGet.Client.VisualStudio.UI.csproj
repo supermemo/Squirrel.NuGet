@@ -236,21 +236,9 @@
     <Resource Include="Resources\packageicon.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\NuGet.Client.V2.VisualStudio\NuGet.Client.V2.VisualStudio.csproj">
-      <Project>{4e58e50b-8aaf-49eb-92c9-1bc4729d93c4}</Project>
-      <Name>NuGet.Client.V2.VisualStudio</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\VisualStudio\VisualStudio.csproj">
       <Project>{6146ca62-cc16-422c-a105-3e81f7452aa6}</Project>
       <Name>VisualStudio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\VsConsole\Console.Types\Console.Types.csproj">
-      <Project>{6fd11460-39a3-4a10-ba63-7541b0a7d053}</Project>
-      <Name>Console.Types</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuGet.Client\NuGet.Client.csproj">
-      <Project>{56ef26e3-35fe-4857-bce3-438089339c83}</Project>
-      <Name>NuGet.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

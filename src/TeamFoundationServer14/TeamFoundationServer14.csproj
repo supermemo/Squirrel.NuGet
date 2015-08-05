@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\..\Build\NuGet.Settings.targets" />
   <PropertyGroup>
@@ -24,8 +24,8 @@
         <Reference Include="Microsoft.TeamFoundation.Client, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
           <HintPath>..\..\lib\VS14\Microsoft.TeamFoundation.Client.dll</HintPath>
           <Private>False</Private>
-		</Reference>
-        <Reference Include="Microsoft.TeamFoundation.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" >
+        </Reference>
+        <Reference Include="Microsoft.TeamFoundation.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
           <HintPath>..\..\lib\VS14\Microsoft.TeamFoundation.Common.dll</HintPath>
           <Private>False</Private>
         </Reference>
@@ -57,10 +57,6 @@
         <ProjectReference Include="..\Core\Core.csproj">
           <Project>{F879F274-EFA0-4157-8404-33A19B4E6AEC}</Project>
           <Name>Core</Name>
-        </ProjectReference>
-        <ProjectReference Include="..\VisualStudio\VisualStudio.csproj">
-          <Project>{6146CA62-CC16-422C-A105-3E81F7452AA6}</Project>
-          <Name>VisualStudio</Name>
         </ProjectReference>
       </ItemGroup>
       <ItemGroup>

@@ -112,10 +112,6 @@
       <Project>{6146CA62-CC16-422C-A105-3E81F7452AA6}</Project>
       <Name>VisualStudio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Console.Types\Console.Types.csproj">
-      <Project>{6FD11460-39A3-4A10-BA63-7541B0A7D053}</Project>
-      <Name>Console.Types</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDictionary Include="..\..\..\CodeAnalysisDictionary.xml">

@@ -117,26 +117,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DialogServices\DialogServices.csproj">
-      <Project>{05497432-8899-4ED4-BB97-7B5EA3E911DB}</Project>
-      <Name>DialogServices</Name>
-      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3b</IncludeOutputGroupsInVSIX>
-      <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
-    </ProjectReference>
-    <ProjectReference Include="..\NuGet.Client.V2.VisualStudio\NuGet.Client.V2.VisualStudio.csproj">
-      <Project>{4e58e50b-8aaf-49eb-92c9-1bc4729d93c4}</Project>
-      <Name>NuGet.Client.V2.VisualStudio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NuGet.Client.V2\NuGet.Client.V2.csproj">
-      <Project>{07536c1c-85c7-4150-ada3-5705e7a9e3ca}</Project>
-      <Name>NuGet.Client.V2</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Options\Options.csproj">
-      <Project>{53ab7187-cdf3-48b5-b90e-8919d3cb904d}</Project>
-      <Name>Options</Name>
-      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3b</IncludeOutputGroupsInVSIX>
-      <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
-    </ProjectReference>
     <ProjectReference Include="..\TeamFoundationServer10\TeamFoundationServer10.csproj" Condition="$(VisualStudioVersion)=='10.0' or $(VisualStudioVersion)=='11.0'">
       <Project>{3F786922-B4F3-4C6E-B22F-3D764BA5B3B8}</Project>
       <Name>TeamFoundationServer10</Name>
@@ -163,22 +143,6 @@
       <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3b</IncludeOutputGroupsInVSIX>
       <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
     </ProjectReference>
-    <ProjectReference Include="..\V3\NuGet.Client.V3Interop\NuGet.Client.V3Interop.csproj">
-      <Project>{9fe9b712-f684-43ec-8f20-f452c60437cb}</Project>
-      <Name>NuGet.Client.V3Interop</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\V3\NuGet.Client.VisualStudio.PowerShell\NuGet.Client.VisualStudio.PowerShell.csproj">
-      <Project>{37465016-5f91-478b-b4e3-dc78b025797a}</Project>
-      <Name>NuGet.Client.VisualStudio.PowerShell</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\V3\NuGet.Client.VisualStudio.UI\NuGet.Client.VisualStudio.UI.csproj">
-      <Project>{a8efbe54-4136-4d15-8db7-3ffecee50682}</Project>
-      <Name>NuGet.Client.VisualStudio.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\V3\NuGet.Client\NuGet.Client.csproj">
-      <Project>{56ef26e3-35fe-4857-bce3-438089339c83}</Project>
-      <Name>NuGet.Client</Name>
-    </ProjectReference>
     <ProjectReference Include="..\VisualStudio.Interop\VisualStudio.Interop.csproj">
       <Project>{7DB43FE1-75E1-49F9-B2C8-06A552BA2144}</Project>
       <Name>VisualStudio.Interop</Name>
@@ -199,33 +163,9 @@
       <Project>{211c558c-1712-44e9-a959-fe2d2aa1de34}</Project>
       <Name>VisualStudioResources</Name>
     </ProjectReference>
-    <ProjectReference Include="..\VsConsole\Console.Types\Console.Types.csproj">
-      <Project>{6FD11460-39A3-4A10-BA63-7541B0A7D053}</Project>
-      <Name>Console.Types</Name>
-      <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
-      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
-    <ProjectReference Include="..\vsConsole\Console\Console.csproj">
-      <Project>{50E33DA2-AF14-486D-81B8-BD8409744A38}</Project>
-      <Name>Console</Name>
-      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3b</IncludeOutputGroupsInVSIX>
-      <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
-    </ProjectReference>
-    <ProjectReference Include="..\VsConsole\PowerShellCmdlets\PowerShellCmdlets.csproj">
-      <Project>{84AC92A6-06B4-41B7-81EC-EFE91356D17C}</Project>
-      <Name>PowerShellCmdlets</Name>
-      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3b</IncludeOutputGroupsInVSIX>
-      <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
-    </ProjectReference>
     <ProjectReference Include="..\VsConsole\PowerShellHostProvider\PowerShellHostProvider.csproj">
       <Project>{A5E7AEB3-738F-4C39-A459-00F90483B2FE}</Project>
       <Name>PowerShellHostProvider</Name>
-      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3b</IncludeOutputGroupsInVSIX>
-      <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
-    </ProjectReference>
-    <ProjectReference Include="..\VsConsole\PowerShellHost\PowerShellHost.csproj">
-      <Project>{5A79EEF3-51C0-4A14-8D37-50EF38AD835D}</Project>
-      <Name>PowerShellHost</Name>
       <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3b</IncludeOutputGroupsInVSIX>
       <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
     </ProjectReference>

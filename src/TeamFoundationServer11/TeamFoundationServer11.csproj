@@ -61,10 +61,6 @@
       <Project>{F879F274-EFA0-4157-8404-33A19B4E6AEC}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\VisualStudio\VisualStudio.csproj">
-      <Project>{6146CA62-CC16-422C-A105-3E81F7452AA6}</Project>
-      <Name>VisualStudio</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

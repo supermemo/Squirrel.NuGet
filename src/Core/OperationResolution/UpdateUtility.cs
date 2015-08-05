@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using NuGet.Resolver;
 using NuGet.Resources;
-using NuGet.VisualStudio.Resources;
 
 namespace NuGet
 {
@@ -172,7 +171,7 @@ namespace NuGet
                     id, version, AllowPrereleaseVersions, allowUnlisted: false);
                 if (package == null)
                 {
-                    Logger.Log(MessageLevel.Info, VsResources.NoUpdatesAvailable, id);
+                    Logger.Log(MessageLevel.Info, "No updates available for {0}", id);
                     return Enumerable.Empty<Resolver.PackageAction>();
                 }
 
@@ -219,14 +218,14 @@ namespace NuGet
                     {
                         throw new InvalidOperationException(
                             String.Format(CultureInfo.CurrentCulture,
-                                VsResources.UnknownPackageInProject,
+                                "Unknown package in Project {0}: {1}",
                                 packages[0].Id,
                                 projectManager.Project.ProjectName));
                     }
 
                     throw new InvalidOperationException(
                             String.Format(CultureInfo.CurrentCulture,
-                                VsResources.AmbiguousUpdate,
+                                "Ambiguous update: {0}",
                                 packages[0].Id));
                 }
 
@@ -239,7 +238,7 @@ namespace NuGet
             {
                 throw new InvalidOperationException(
                     String.Format(CultureInfo.CurrentCulture,
-                    VsResources.UnknownPackage, id));
+                    "Unknown Package: {0}", id));
             }
 
             bool isProjectLevel = packageManager.IsProjectLevel(package);
@@ -251,14 +250,14 @@ namespace NuGet
                 {
                     throw new InvalidOperationException(
                         String.Format(CultureInfo.CurrentCulture,
-                        VsResources.UnknownPackageInProject,
+                        "Unknown package {0} in project {1}",
                         package.Id,
                         projectManager.Project.ProjectName));
                 }
 
                 throw new InvalidOperationException(
                     String.Format(CultureInfo.CurrentCulture,
-                    VsResources.UnknownPackageInProject,
+                    "Unknown package {0} in project {1}",
                     package.GetFullName(),
                     projectManager.Project.ProjectName));
             }
@@ -304,7 +303,7 @@ namespace NuGet
                         {
                             throw new InvalidOperationException(
                                 String.Format(CultureInfo.CurrentCulture,
-                                    VsResources.AmbiguousUpdate,
+                                    "Ambiguous update: {0}",
                                     id));
                         }
 
@@ -316,7 +315,7 @@ namespace NuGet
                         if (!packageManager.LocalRepository.IsReferenced(p.Id, p.Version))
                         {
                             logger.Log(MessageLevel.Warning, String.Format(CultureInfo.CurrentCulture,
-                                VsResources.Warning_PackageNotReferencedByAnyProject, p.Id, p.Version));
+                                "Package not referenced by any project {0}, {1}", p.Id, p.Version));
 
                             // Try next package
                             continue;
@@ -335,7 +334,7 @@ namespace NuGet
                     // it's probably a borked install.
                     throw new PackageNotInstalledException(
                         String.Format(CultureInfo.CurrentCulture,
-                        VsResources.PackageNotInstalledInAnyProject, id));
+                        "Package not installed in any project: {0}", id));
                 }
             }
 
@@ -343,7 +342,7 @@ namespace NuGet
             {
                 throw new InvalidOperationException(
                     String.Format(CultureInfo.CurrentCulture,
-                    VsResources.UnknownPackage, id));
+                    "Unknown Package: {0}", id));
             }
 
             return Tuple.Create<IPackage, IProjectManager>(package, null);

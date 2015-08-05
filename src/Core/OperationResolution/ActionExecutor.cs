@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NuGet.VisualStudio.Resources;
 
 namespace NuGet.Resolver
 {
@@ -159,7 +158,7 @@ namespace NuGet.Resolver
             if (executedOperations.Count > 0)
             {
                 // Only print the rollback warning if we have something to rollback
-                Logger.Log(MessageLevel.Warning, VsResources.Warning_RollingBack);
+                Logger.Log(MessageLevel.Warning, "Rolling back");
             }
 
             executedOperations.Reverse();

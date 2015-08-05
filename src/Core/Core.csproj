@@ -16,6 +16,9 @@
     <DefineConstants Condition="'$(VisualStudioVersion)'=='12.0'">$(DefineConstants);VS12</DefineConstants>
     <DefineConstants Condition="'$(VisualStudioVersion)'=='14.0'">$(DefineConstants);VS14</DefineConstants>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="..\..\Common\CommonResources.resx">
       <Link>Common\CommonResources.resx</Link>
@@ -36,13 +39,13 @@
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)'=='14.0'">
-	  <ItemGroup>
-	    <Reference Include="Microsoft.VisualStudio.ProjectSystem.Interop">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.ProjectSystem.Interop">
           <HintPath>..\..\lib\Microsoft.VisualStudio.ProjectSystem.Interop.dll</HintPath>
           <EmbedInteropTypes>True</EmbedInteropTypes>
         </Reference>
-	  </ItemGroup>
-	</When>
+      </ItemGroup>
+    </When>
   </Choose>
   <ItemGroup>
     <Compile Include="..\..\Common\CommonResources.cs">
@@ -354,12 +357,6 @@
     <CodeAnalysisDictionary Include="..\..\CodeAnalysisDictionary.xml">
       <Link>Properties\CodeAnalysisDictionary.xml</Link>
     </CodeAnalysisDictionary>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\VisualStudioResources\VisualStudioResources.csproj">
-      <Project>{211c558c-1712-44e9-a959-fe2d2aa1de34}</Project>
-      <Name>VisualStudioResources</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="BeforeBuild">
