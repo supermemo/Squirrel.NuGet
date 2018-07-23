@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Globalization;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using NuGet.Resources;
 
@@ -14,6 +15,9 @@ namespace NuGet
     [TypeConverter(typeof(SemanticVersionTypeConverter))]
     public sealed class SemanticVersion : IComparable, IComparable<SemanticVersion>, IEquatable<SemanticVersion>
     {
+        [DllImport("shlwapi.dll", CharSet = CharSet.Unicode, ExactSpelling = true)]
+        static extern int StrCmpLogicalW(string x, string y);
+
         private const RegexOptions _flags = RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture;
         private static readonly Regex _semanticVersionRegex = new Regex(@"^(?<Version>\d+(\s*\.\s*\d+){0,3})(?<Release>-[a-z][0-9a-z-]*)?$", _flags);
         private static readonly Regex _strictSemanticVersionRegex = new Regex(@"^(?<Version>\d+(\.\d+){2})(?<Release>-[a-z][0-9a-z-]*)?$", _flags);
@@ -240,7 +244,7 @@ namespace NuGet
             {
                 return -1;
             }
-            return StringComparer.OrdinalIgnoreCase.Compare(SpecialVersion, other.SpecialVersion);
+            return StrCmpLogicalW(SpecialVersion, other.SpecialVersion);
         }
 
         public static bool operator ==(SemanticVersion version1, SemanticVersion version2)
