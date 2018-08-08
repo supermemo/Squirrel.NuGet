@@ -1,7 +1,6 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Globalization;
-using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using NuGet.Resources;
 
@@ -15,12 +14,10 @@ namespace NuGet
     [TypeConverter(typeof(SemanticVersionTypeConverter))]
     public sealed class SemanticVersion : IComparable, IComparable<SemanticVersion>, IEquatable<SemanticVersion>
     {
-        [DllImport("shlwapi.dll", CharSet = CharSet.Unicode, ExactSpelling = true)]
-        static extern int StrCmpLogicalW(string x, string y);
-
         private const RegexOptions _flags = RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture;
         private static readonly Regex _semanticVersionRegex = new Regex(@"^(?<Version>\d+(\s*\.\s*\d+){0,3})(?<Release>-[a-z][0-9a-z-]*)?$", _flags);
         private static readonly Regex _strictSemanticVersionRegex = new Regex(@"^(?<Version>\d+(\.\d+){2})(?<Release>-[a-z][0-9a-z-]*)?$", _flags);
+        private static readonly Regex _preReleaseVersionRegex = new Regex(@"(?<PreReleaseString>[a-z]+)(?<PreReleaseNumber>[0-9]+)$", _flags);
         private readonly string _originalString;
 
         public SemanticVersion(string version)
@@ -244,7 +241,25 @@ namespace NuGet
             {
                 return -1;
             }
-            return StrCmpLogicalW(SpecialVersion, other.SpecialVersion);
+
+            // If both versions have a prerelease section with the same prefix
+            // and end with digits, compare based on the digits' numeric order
+            var match = _preReleaseVersionRegex.Match(SpecialVersion.Trim());
+            var otherMatch = _preReleaseVersionRegex.Match(other.SpecialVersion.Trim());
+            if (match.Success && otherMatch.Success &&
+                string.Equals(
+                    match.Groups["PreReleaseString"].Value,
+                    otherMatch.Groups["PreReleaseString"].Value,
+                    StringComparison.OrdinalIgnoreCase))
+            {
+                int delta =
+                    int.Parse(match.Groups["PreReleaseNumber"].Value) -
+                    int.Parse(otherMatch.Groups["PreReleaseNumber"].Value);
+
+                return delta != 0 ? delta / Math.Abs(delta) : 0;
+            }
+
+            return StringComparer.OrdinalIgnoreCase.Compare(SpecialVersion, other.SpecialVersion);
         }
 
         public static bool operator ==(SemanticVersion version1, SemanticVersion version2)
