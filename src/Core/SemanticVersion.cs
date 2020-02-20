@@ -16,7 +16,7 @@ namespace NuGet
     {
         private const RegexOptions _flags = RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture;
         private static readonly Regex _semanticVersionRegex = new Regex(@"^(?<Version>\d+(\s*\.\s*\d+){0,3})(?<Release>-[a-z][0-9a-z-]*)?$", _flags);
-        private static readonly Regex _strictSemanticVersionRegex = new Regex(@"^(?<Version>\d+(\.\d+){2})(?<Release>-[a-z][0-9a-z-]*)?$", _flags);
+        private static readonly Regex _strictSemanticVersionRegex = new Regex(@"^(?<Version>\d+(\.\d+){2,3})(?<Release>-[a-z][0-9a-z-]*)?$", _flags);
         private static readonly Regex _preReleaseVersionRegex = new Regex(@"(?<PreReleaseString>[a-z]+)(?<PreReleaseNumber>[0-9]+)$", _flags);
         private readonly string _originalString;
 
