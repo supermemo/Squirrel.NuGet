@@ -84,6 +84,15 @@ namespace NuGet
             private set;
         }
 
+        public string GetPreReleaseString()
+        {
+          var match = _preReleaseVersionRegex.Match(SpecialVersion.Trim());
+
+          return match.Success
+            ? match.Groups["PreReleaseString"].Value
+            : string.Empty;
+        }
+
         public string[] GetOriginalVersionComponents()
         {
             if (!String.IsNullOrEmpty(_originalString))
